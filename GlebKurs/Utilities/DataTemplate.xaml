@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:GlebKurs.ViewModel"
+                    xmlns:view="clr-namespace:GlebKurs.View">
+
+    <DataTemplate DataType="{x:Type vm:ClientsVM}">
+        <view:Clients />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ManagersVM}">
+        <view:Managers />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:OrdersVM}">
+        <view:Orders />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type vm:ServicesVM}">
+        <view:Services />
+    </DataTemplate>
+
+</ResourceDictionary>
