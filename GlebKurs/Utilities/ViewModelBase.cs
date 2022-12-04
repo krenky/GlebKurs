@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using ClassLibrary;
 
 namespace GlebKurs.Utilities
 {
@@ -15,5 +16,7 @@ namespace GlebKurs.Utilities
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
+
+        
     }
 }

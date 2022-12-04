@@ -1,4 +1,5 @@
 ﻿using ClassLibrary;
+using GlebKurs.Context;
 using GlebKurs.Model;
 using GlebKurs.View;
 using Npgsql;
@@ -19,23 +20,12 @@ namespace GlebKurs.ViewModel
         {
             try
             {
-                PageModel.CheckConection();
-                var sql = @$"select * from {PageModel.pref}.Orders";
-                var cmd = new NpgsqlCommand(sql, PageModel.connection);
-                var result = cmd.ExecuteReader();
-                if (result.HasRows)
-                    while (result.Read())
-                    {
-                        Services.Add(new Service()
-                        {
-                            Id = (int)result.GetValue(0),
-                            Name= (string)result.GetValue(1),
-                            Description = (string)result.GetValue(2),
-                            Price = (int)result.GetValue(3),
-                            Status = (Status)result.GetValue(4)
-                        });
-
-                    }
+                using (ApplicationContext db = new ApplicationContext())
+                {
+                    // получаем объекты из бд и выводим на консоль
+                    var serviceList = db.Service.ToList();
+                    Services = new ObservableCollection<Service>(serviceList);
+                }
             }
             catch
             {

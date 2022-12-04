@@ -6,7 +6,7 @@ namespace ClassLibrary
     public class Manager : INotifyPropertyChanged
     {
         private string name;
-        private int fillialId;
+        private Fillial fillial;
 
         public int Id { get; set; }
         public string Name { get => name;
@@ -17,14 +17,13 @@ namespace ClassLibrary
             }
         }
         public List<Order> Orders { get; set; }
-        public int FillialId { get => fillialId;
+        public Fillial Fillial { get => fillial;
             set
             {
-                fillialId = value;
-                OnPropertyChanged("FillialId");
+                fillial = value;
+                OnPropertyChanged("Fillial");
             }
         }
-        public Fillial Fillial { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
@@ -32,5 +31,11 @@ namespace ClassLibrary
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
+    }
+    public enum Fillial
+    {
+        kaz,
+        alm,
+        che
     }
 }
