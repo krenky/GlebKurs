@@ -45,10 +45,10 @@ namespace ClassLibrary
                 OnPropertyChanged("Phone");
             }
         }
-        public string Address { get => Address;
+        public string Address { get => address;
             set
             {
-                Address = value;
+                address = value;
                 OnPropertyChanged("Address");
             }
         }

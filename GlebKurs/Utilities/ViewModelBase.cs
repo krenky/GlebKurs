@@ -9,7 +9,7 @@ using ClassLibrary;
 
 namespace GlebKurs.Utilities
 {
-    class ViewModelBase : INotifyPropertyChanged
+    public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string propName = null)
@@ -17,6 +17,6 @@ namespace GlebKurs.Utilities
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
 
-        
+        public Fillial currentFillial { get; set; } = Fillial.kaz;
     }
 }

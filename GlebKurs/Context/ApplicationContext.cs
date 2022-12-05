@@ -18,8 +18,8 @@ namespace GlebKurs.Context
 
         public ApplicationContext(Fillial currentFillial)
         {
-            Database.EnsureCreated();
             CurrentFillial = currentFillial;
+            Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

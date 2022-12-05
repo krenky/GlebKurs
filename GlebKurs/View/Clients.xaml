@@ -13,11 +13,22 @@
     </UserControl.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Border CornerRadius="0,20,20,0"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <DataGrid x:Name="DataClient" ItemsSource="{Binding Clients}" AddingNewItem="DataClient_AddingNewItem" RowEditEnding="DataClient_RowEditEnding"/>
+        <TextBox x:Name="FirstNameBox" HorizontalAlignment="Left" Margin="10,24,0,0" Grid.Row="1" TextWrapping="Wrap" Text="FirstName" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="LastNameBox" HorizontalAlignment="Left" Margin="115,24,0,0" Grid.Row="1" TextWrapping="Wrap" Text="LastName" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="EmailBox" HorizontalAlignment="Left" Margin="220,24,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="100"/>
+        <ComboBox x:Name="FillialEnumCombo" HorizontalAlignment="Left" Margin="512,85,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100">
+            <TextBlock>kaz</TextBlock>
+            <TextBlock>alm</TextBlock>
+            <TextBlock>che</TextBlock>
+        </ComboBox>
+        <TextBox x:Name="PhoneBox" HorizontalAlignment="Left" Margin="325,24,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Phone" VerticalAlignment="Top" Width="100"/>
+        <TextBox x:Name="AddressBox" HorizontalAlignment="Left" Margin="430,24,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Width="100"/>
+        <Button Content="Add" HorizontalAlignment="Left" Margin="10,47,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
 
 
     </Grid>

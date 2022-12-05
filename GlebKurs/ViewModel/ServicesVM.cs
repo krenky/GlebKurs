@@ -20,7 +20,7 @@ namespace GlebKurs.ViewModel
         {
             try
             {
-                using (ApplicationContext db = new ApplicationContext())
+                using (ApplicationContext db = new ApplicationContext(currentFillial))
                 {
                     // получаем объекты из бд и выводим на консоль
                     var serviceList = db.Service.ToList();

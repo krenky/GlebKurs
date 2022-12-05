@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using ClassLibrary;
+using GlebKurs.Context;
+using System;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace GlebKurs.View
 {
@@ -23,6 +13,39 @@ namespace GlebKurs.View
         public Clients()
         {
             InitializeComponent();
+        }
+
+        private void DataClient_AddingNewItem(object sender, AddingNewItemEventArgs e)
+        {
+            
+        }
+
+        private void DataClient_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+            TextBlock selectedItem = (TextBlock)FillialEnumCombo.SelectedItem;
+            using (var context = new ApplicationContext(Enum.Parse<Fillial>(selectedItem.Text)))
+            {
+
+            }
+            Console.WriteLine(DataClient.Items);
+        }
+
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            TextBlock selectedItem = (TextBlock)FillialEnumCombo.SelectedItem;
+            using (var context = new ApplicationContext(Enum.Parse<Fillial>(selectedItem.Text)))
+            {
+                context.Client.Add(new Client()
+                {
+                    FirstName= FirstNameBox.Text,
+                    LastName= LastNameBox.Text,
+                    Email= EmailBox.Text,
+                    Phone= PhoneBox.Text,
+                    Address= AddressBox.Text,
+                });
+                context.SaveChanges();
+            }
+            DataClient.UpdateLayout();
         }
     }
 }
