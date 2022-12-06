@@ -17,8 +17,32 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Border CornerRadius="0,20,20,0"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
-
+        <DataGrid x:Name="OrdersData" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Manager" Binding="{Binding Manager.Name}"/>
+                <DataGridTextColumn Header="Client" Binding="{Binding Client.FirstName}"/>
+                <DataGridTextColumn Header="Services" Binding="{Binding StringServices}"/>
+                <DataGridTextColumn Header="Pay type" Binding="{Binding PayType}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox x:Name="FillialEnumCombo" HorizontalAlignment="Left" Margin="512,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="100" SelectionChanged="FillialEnumCombo_SelectionChanged">
+            <TextBlock>kaz</TextBlock>
+            <TextBlock>alm</TextBlock>
+            <TextBlock>che</TextBlock>
+        </ComboBox>
+        <Button x:Name="Add" Content="Add" HorizontalAlignment="Left" Margin="10,71,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Add_Click"/>
+        <ComboBox x:Name="ComboClient" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="105"/>
+        <ComboBox x:Name="ComboManager" HorizontalAlignment="Left" Margin="120,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="ComboService" HorizontalAlignment="Left" Margin="245,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="121"/>
+        <Label Content="Клиент" HorizontalAlignment="Left" Margin="10,37,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Менеджер" HorizontalAlignment="Left" Margin="120,37,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Услуги" HorizontalAlignment="Left" Margin="245,37,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
+        <ComboBox x:Name="ComboPayType" HorizontalAlignment="Left" Margin="371,10,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Картой"/>
+            <ComboBoxItem Content="Наличными"/>
+        </ComboBox>
+        <Label Content="Тип оплаты" HorizontalAlignment="Left" Margin="371,37,0,0" Grid.Row="1" VerticalAlignment="Top" Foreground="White"/>
 
     </Grid>
 </UserControl>

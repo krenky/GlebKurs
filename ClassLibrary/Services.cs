@@ -39,6 +39,7 @@ namespace ClassLibrary
                 OnPropertyChanged("Status");
             }
         }
+        public List<Service> Services { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

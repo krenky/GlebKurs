@@ -6,7 +6,7 @@ namespace ClassLibrary
     public class Manager : INotifyPropertyChanged
     {
         private string name;
-        private Fillial fillial;
+        private string fillial;
 
         public int Id { get; set; }
         public string Name { get => name;
@@ -17,7 +17,7 @@ namespace ClassLibrary
             }
         }
         public List<Order> Orders { get; set; }
-        public Fillial Fillial { get => fillial;
+        public string Fillial { get => fillial;
             set
             {
                 fillial = value;

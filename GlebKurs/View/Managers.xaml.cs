@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClassLibrary;
+using GlebKurs.Context;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,76 @@ namespace GlebKurs.View
         public Managers()
         {
             InitializeComponent();
+            switch (MainWindow.fillial)
+            {
+                case Fillial.kaz:
+                    {
+                        using (var context = new KazContext())
+                        {
+
+                            MangerData.ItemsSource = null;
+                            MangerData.ItemsSource = context.Manager.ToList(); ;
+                        }
+                    }
+                    break;
+                case Fillial.che:
+                    {
+                        using (var context = new CheContext())
+                        {
+
+                            MangerData.ItemsSource = null;
+                            MangerData.ItemsSource = context.Manager.ToList(); ;
+                        }
+                    }
+                    break;
+                case Fillial.alm:
+                    {
+                        using (var context = new AlmContext())
+                        {
+                            MangerData.ItemsSource = null;
+                            MangerData.ItemsSource = context.Manager.ToList(); ;
+                        }
+                    }
+                    break;
+            }
+        }
+
+        private void FillialEnumCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TextBlock selectedItem = (TextBlock)FillialEnumCombo.SelectedItem;
+            MainWindow.fillial = Enum.Parse<Fillial>(selectedItem.Text);
+            switch (MainWindow.fillial)
+            {
+                case Fillial.kaz:
+                    {
+                        using (var context = new KazContext())
+                        {
+
+                            MangerData.ItemsSource = null;
+                            MangerData.ItemsSource = context.Manager.ToList(); ;
+                        }
+                    }
+                    break;
+                case Fillial.che:
+                    {
+                        using (var context = new CheContext())
+                        {
+
+                            MangerData.ItemsSource = null;
+                            MangerData.ItemsSource = context.Manager.ToList(); ;
+                        }
+                    }
+                    break;
+                case Fillial.alm:
+                    {
+                        using (var context = new AlmContext())
+                        {
+                            MangerData.ItemsSource = null;
+                            MangerData.ItemsSource = context.Manager.ToList(); ;
+                        }
+                    }
+                    break;
+            }
         }
     }
 }

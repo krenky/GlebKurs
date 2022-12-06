@@ -14,20 +14,20 @@ namespace GlebKurs.ViewModel
         private ObservableCollection<Manager> Managers { get => managers; set { managers = value; OnPropertyChanged(); } }
         public ManagersVM()
         {
-            try
-            {
-                using (ApplicationContext db = new ApplicationContext(currentFillial))
-                {
-                    // получаем объекты из бд и выводим на консоль
-                    var managerList = db.Manager.ToList();
-                    Managers = new ObservableCollection<Manager>(managerList);
-                }
-            }
-            catch
-            {
-                //Получение списка клиентов
-                Managers = new ObservableCollection<Manager>();
-            }
+            //try
+            //{
+            //    using (ApplicationContext db = new ApplicationContext(currentFillial))
+            //    {
+            //        // получаем объекты из бд и выводим на консоль
+            //        var managerList = db.Manager.ToList();
+            //        Managers = new ObservableCollection<Manager>(managerList);
+            //    }
+            //}
+            //catch
+            //{
+            //    //Получение списка клиентов
+            //    Managers = new ObservableCollection<Manager>();
+            //}
         }
     }
 }

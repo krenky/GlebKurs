@@ -24,13 +24,14 @@ namespace GlebKurs.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=49153;Database=postgres;Username=postgres;Password=postgrespw");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=49154;Database=postgres;Username=postgres;Password=postgrespw");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             //Set the default schema
             builder.HasDefaultSchema(CurrentFillial.ToString());
+            
 
             //Continue with the call./Migrate
             base.OnModelCreating(builder);

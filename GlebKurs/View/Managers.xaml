@@ -17,7 +17,12 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Border CornerRadius="0,20,20,0"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+        <DataGrid x:Name="MangerData" />
+        <ComboBox x:Name="FillialEnumCombo" HorizontalAlignment="Left" Margin="512,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="100" SelectionChanged="FillialEnumCombo_SelectionChanged">
+            <TextBlock>kaz</TextBlock>
+            <TextBlock>alm</TextBlock>
+            <TextBlock>che</TextBlock>
+        </ComboBox>
 
 
     </Grid>

@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;
 using System.Xml.Linq;
 
 namespace ClassLibrary
@@ -29,6 +31,11 @@ namespace ClassLibrary
         }
         public Manager Manager { get; set; }
         public List<Service> Services { get; set; }
+        [NotMapped]
+        public string StringServices { get
+            {
+                return String.Join(", ", Services.Select(x => x.Name));
+            } }
         public PayType PayType { get => payType;
             set
             {

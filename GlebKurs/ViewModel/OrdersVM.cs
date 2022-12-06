@@ -14,20 +14,20 @@ namespace GlebKurs.ViewModel
         private ObservableCollection<Order> Orders { get => orders; set { orders = value; OnPropertyChanged(); } }
         public OrdersVM()
         {
-            try
-            {
-                    using (ApplicationContext db = new ApplicationContext(currentFillial))
-                    {
-                        // получаем объекты из бд и выводим на консоль
-                        var orderList = db.Order.ToList();
-                        Orders = new ObservableCollection<Order>(orderList);
-                    }
-            }
-            catch
-            {
-                //Получение списка клиентов
-                Orders = new ObservableCollection<Order>();
-            }
+            //try
+            //{
+            //        using (ApplicationContext db = new ApplicationContext(currentFillial))
+            //        {
+            //            // получаем объекты из бд и выводим на консоль
+            //            var orderList = db.Order.ToList();
+            //            Orders = new ObservableCollection<Order>(orderList);
+            //        }
+            //}
+            //catch
+            //{
+            //    //Получение списка клиентов
+            //    Orders = new ObservableCollection<Order>();
+            //}
         }
     }
 }

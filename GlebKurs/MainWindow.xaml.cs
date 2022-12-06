@@ -24,7 +24,7 @@ namespace GlebKurs
     /// </summary>
     public partial class MainWindow : Window
     {
-        static Fillial fillial = Fillial.kaz;
+        public static Fillial fillial = Fillial.kaz;
         static string connectionString = "Host=localhost;port=49155;Username=postgres;Password=postgrespw;Database=postgres";
         NpgsqlConnection connection = new NpgsqlConnection(connectionString);
         public MainWindow()
@@ -45,6 +45,11 @@ namespace GlebKurs
             //{
             //    //Код обработки ошибок
             //}
+        }
+
+        private void FillialEnumCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

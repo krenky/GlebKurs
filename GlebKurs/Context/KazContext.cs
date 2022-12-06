@@ -15,7 +15,7 @@ namespace GlebKurs.Context
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=49153;Database=postgres;Username=postgres;Password=postgrespw");
+            optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=kazdb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -25,8 +25,21 @@ namespace GlebKurs.Context
             builder.Entity<Manager>().HasData(
                 new Manager[]
                 {
-                    new Manager() { Name = "Анатолий Викторович", Fillial = Fillial.kaz}
+                    new Manager() {Id =1, Name = "Анатолий Викторович", Fillial = Fillial.kaz.ToString()}
                 });
+            builder.Entity<Service>().HasData(
+                new Service[]
+                {
+                    new Service() {Id=1, Name = "Замена комплектующих", Price=1000},
+                    new Service() {Id=2, Name = "Диагностика", Price= 2000},
+                    new Service() {Id=3, Name = "Установка ПО", Price = 10000}
+                });
+            builder.Entity<Client>().HasData(
+                new Client[]
+                {
+                    new Client() { Id=1, FirstName ="Abdula", LastName="Lahman", Address = "Bagdat", Email="ajshjska@hmail.com", Phone="+9457394342"}
+                }
+            );
 
             //Continue with the call./Migrate
             base.OnModelCreating(builder);

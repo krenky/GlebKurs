@@ -18,20 +18,20 @@ namespace GlebKurs.ViewModel
         private ObservableCollection<Service> Services { get => services; set { services = value; OnPropertyChanged(); } }
         public ServicesVM()
         {
-            try
-            {
-                using (ApplicationContext db = new ApplicationContext(currentFillial))
-                {
-                    // получаем объекты из бд и выводим на консоль
-                    var serviceList = db.Service.ToList();
-                    Services = new ObservableCollection<Service>(serviceList);
-                }
-            }
-            catch
-            {
-                //Получение списка клиентов
-                Services = new ObservableCollection<Service>();
-            }
+            //try
+            //{
+            //    using (ApplicationContext db = new ApplicationContext(currentFillial))
+            //    {
+            //        // получаем объекты из бд и выводим на консоль
+            //        var serviceList = db.Service.ToList();
+            //        Services = new ObservableCollection<Service>(serviceList);
+            //    }
+            //}
+            //catch
+            //{
+            //    //Получение списка клиентов
+            //    Services = new ObservableCollection<Service>();
+            //}
         }
     }
 }
